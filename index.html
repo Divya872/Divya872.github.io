@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travia - Discover Sri Lanka's Finest Hotels</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers - Sri Lanka Hotels</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5a9ecf;
+            --secondary-color: #FFA726;
+            --accent-color: #D32F2F;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #5a9ecf);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.2), rgba(44, 62, 80, 0.2)),
+                url('https://i.pinimg.com/736x/93/0b/58/930b5847b3df128866d8d32b29ac1f65.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #5a9ecf);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-color), #FFB74D);
+            border: none;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .destination-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .destination-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .hotel-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .hotel-card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .price-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .rating {
+            color: var(--secondary-color);
+        }
+
+        .offer-badge {
+            background: linear-gradient(135deg, var(--accent-color), #E57373);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+      .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border-radius: 2px;
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(45deg, #dc3545, #c82333);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+            transform: rotate(10deg);
+        }
+        
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-body {
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+        
+        .card-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+        }
+        
+        .card h4 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .card p {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #0056b3, #004085);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            padding: 1.5rem 2rem;
+        }
+        
+        .modal-title {
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .offer-detail {
+            margin-bottom: 1.5rem;
+        }
+        
+        .offer-detail h6 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .offer-detail p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+        
+        .terms-list {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .terms-list ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .terms-list li {
+            margin-bottom: 0.5rem;
+            color: #6c757d;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+        
+        .py-5 {
+            padding: 4rem 0;
+        }
+        
+        .bg-light {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .about-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 5rem 0;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color), #5a9ecf);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+        }
+
+        .footer {
+            background: #2C3E50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .filter-section {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+
+        .map-container {
+            height: 300px;
+            background: #e9ecef;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .search-card {
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+		
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="../../Downloads/WhatsApp Image 2025-06-25 at 11.03.24_fa08d7bd.jpg" 
+                     alt="Travia Logo" class="logo">
+                Travia
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations"><i class="fas fa-search"></i> Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#search"><i class="fas fa-map-marker-alt"></i> Search Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1>Discover Sri Lanka's Paradise</h1>
+                <p>Experience the pearl of the Indian Ocean with our curated collection of finest hotels</p>
+                <!-- Search Form -->
+                <div class="search-card">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label text-dark">Destination</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                    <input type="text" class="form-control" placeholder="Where to go?">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label text-dark">Check-in</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label text-dark">Check-out</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label text-dark">Guests</label>
+                                <select class="form-select">
+                                    <option>1 Guest</option>
+                                    <option>2 Guests</option>
+                                    <option>3 Guests</option>
+                                    <option>4+ Guests</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    <i class="fas fa-search me-2"></i>Search Hotels
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section id="destinations" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card destination-card">
+                        <img src="images/Colombo Srilanka.jpeg" 
+                             class="card-img-top" alt="Colombo">
+                        <div class="card-body">
+                            <h5 class="card-title">Colombo</h5>
+                            <p class="card-text">The bustling capital city with modern hotels and vibrant nightlife.</p>
+                            <small class="text-muted">120+ Hotels Available</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card destination-card">
+                        <img src="images/Kandy.jpeg" 
+                             class="card-img-top" alt="Kandy">
+                        <div class="card-body">
+                            <h5 class="card-title">Kandy</h5>
+                            <p class="card-text">The cultural capital surrounded by misty mountains and ancient temples.</p>
+                            <small class="text-muted">85+ Hotels Available</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card destination-card">
+                        <img src="images/Amangalla.jpeg" 
+                             class="card-img-top" alt="Galle">
+                        <div class="card-body">
+                            <h5 class="card-title">Galle</h5>
+                            <p class="card-text">Historic fort city with colonial charm and beautiful beaches.</p>
+                            <small class="text-muted">65+ Hotels Available</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Offers -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body text-center">
+                            <div class="offer-badge">30% OFF</div>
+                            <h4>Early Bird Special</h4>
+                            <p>Plan your getaway early — book at least 30 days in advance and enjoy up to 30% off on selected luxury hotels across beautiful Sri Lanka</p>
+                            <a href="javascript:void(0)" class="btn btn-secondary" onclick="showOfferDetails('early-bird')">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body text-center">
+                            <div class="offer-badge">FREE UPGRADE</div>
+                            <h4>Honeymoon Package</h4>
+                            <p>Complimentary room upgrade and romantic dinner for couples on their honeymoon.</p>
+                            <a href="javascript:void(0)" class="btn btn-secondary" onclick="showOfferDetails('honeymoon')">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Details Modal -->
+    <div class="modal fade" id="offerModal" tabindex="-1" aria-labelledby="offerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="offerModalLabel">Offer Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="offerModalBody">
+                    <!-- Content will be dynamically loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="bookNow()">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Offer details data
+        const offerDetails = {
+            'early-bird': {
+                title: 'Early Bird Special - 30% OFF',
+                icon: 'fas fa-clock',
+                description: 'Take advantage of our exclusive Early Bird Special and save up to 30% on your Sri Lankan getaway!',
+                details: [
+                    {
+                        title: 'Discount Details',
+                        content: 'Save up to 30% on room rates at participating hotels across Sri Lanka'
+                    },
+                    {
+                        title: 'Booking Window',
+                        content: 'Must book at least 30 days before your check-in date'
+                    },
+                    {
+                        title: 'Valid Destinations',
+                        content: 'Colombo, Kandy, Galle, Negombo, Ella, Nuwara Eliya, and Bentota'
+                    },
+                    {
+                        title: 'Additional Benefits',
+                        content: 'Free WiFi, complimentary breakfast, and airport transfer discounts'
+                    }
+                ],
+                terms: [
+                    'Offer valid for bookings made 30 days in advance',
+                    'Subject to availability and blackout dates',
+                    'Cannot be combined with other promotions',
+                    'Cancellation policy applies as per hotel terms',
+                    'Valid for stays until December 31, 2025'
+                ]
+            },
+            'honeymoon': {
+                title: 'Honeymoon Package - FREE UPGRADE',
+                icon: 'fas fa-heart',
+                description: 'Celebrate your love with our romantic honeymoon package featuring luxury upgrades and special amenities!',
+                details: [
+                    {
+                        title: 'Room Upgrade',
+                        content: 'Complimentary upgrade to next room category (subject to availability)'
+                    },
+                    {
+                        title: 'Romantic Dinner',
+                        content: 'Private candlelit dinner for two at our finest restaurant'
+                    },
+                    {
+                        title: 'Special Amenities',
+                        content: 'Champagne on arrival, rose petals, and chocolate-covered strawberries'
+                    },
+                    {
+                        title: 'Spa Treatment',
+                        content: '60-minute couples massage at our luxury spa'
+                    }
+                ],
+                terms: [
+                    'Valid marriage certificate required (within 6 months)',
+                    'Minimum 3-night stay required',
+                    'Advance booking recommended',
+                    'Romantic dinner subject to restaurant availability',
+                    'Spa treatments require advance booking'
+                ]
+            }
+        };
+
+        function showOfferDetails(offerId) {
+            const offer = offerDetails[offerId];
+            if (!offer) return;
+
+            // Update modal title
+            document.getElementById('offerModalLabel').innerHTML = `<i class="${offer.icon}"></i> ${offer.title}`;
+
+            // Create modal content
+            let modalContent = `
+                <div class="offer-detail">
+                    <p class="lead">${offer.description}</p>
+                </div>
+                <div class="row">
+            `;
+
+            // Add offer details
+            offer.details.forEach(detail => {
+                modalContent += `
+                    <div class="col-md-6 mb-3">
+                        <div class="offer-detail">
+                            <h6><i class="fas fa-check-circle text-primary me-2"></i>${detail.title}</h6>
+                            <p>${detail.content}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            modalContent += `
+                </div>
+                <div class="terms-list">
+                    <h6><i class="fas fa-info-circle me-2"></i>Terms & Conditions</h6>
+                    <ul>
+            `;
+
+            // Add terms and conditions
+            offer.terms.forEach(term => {
+                modalContent += `<li>${term}</li>`;
+            });
+
+            modalContent += `
+                    </ul>
+                </div>
+            `;
+
+            // Update modal body
+            document.getElementById('offerModalBody').innerHTML = modalContent;
+
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('offerModal'));
+            modal.show();
+        }
+
+        function bookNow() {
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('offerModal'));
+            modal.hide();
+            
+            // Show booking confirmation (you can replace this with actual booking logic)
+            setTimeout(() => {
+                alert('Redirecting to booking page...\n\nThank you for choosing our special offer!');
+            }, 300);
+        }
+    </script>
+    <!-- Search Results Section -->
+    <section id="search" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Search Results</h2>
+            <!-- Filters -->
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="form-label">Price Range</label>
+                        <select class="form-select">
+                            <option>All Prices</option>
+                            <option>Under $50</option>
+                            <option>$50 - $100</option>
+                            <option>$100 - $200</option>
+                            <option>Above $200</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Star Rating</label>
+                        <select class="form-select">
+                            <option>All Ratings</option>
+                            <option>5 Stars</option>
+                            <option>4 Stars</option>
+                            <option>3 Stars</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Amenities</label>
+                        <select class="form-select">
+                            <option>All Amenities</option>
+                            <option>Pool</option>
+                            <option>Spa</option>
+                            <option>Restaurant</option>
+                            <option>Beach Access</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button class="btn btn-primary w-100">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel Results -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card hotel-card">
+                        <img src="images/Cinnamon grand hotel.jpeg" 
+                             class="card-img-top" alt="Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title">Cinnamon Grand Colombo</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-2">4.8 (245 reviews)</span>
+                            </div>
+                            <p class="card-text">Luxury hotel in the heart of Colombo with world-class amenities.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$120/night</span>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="showHotelDetails('cinnamon-grand')">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card hotel-card">
+                        <img src="images/Amaya lake Dambulla.jpeg" 
+                             class="card-img-top" alt="Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title">Amaya Lake Kandy</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.5 (189 reviews)</span>
+                            </div>
+                            <p class="card-text">Serene lakeside resort with stunning mountain views.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$85/night</span>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="showHotelDetails('amaya-lake')">View Details</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card hotel-card">
+                        <img src="images/Jetwing Lighthouse Hotel Galle.jpeg" 
+                             class="card-img-top" alt="Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title">Jetwing Lighthouse</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-2">4.9 (312 reviews)</span>
+                            </div>
+                            <p class="card-text">Iconic clifftop hotel overlooking the Indian Ocean.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price-tag">$150/night</span>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="showHotelDetails('jetwing-lighthouse')">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="section-title text-start">About Travia</h2>
+                    <h4>Your Gateway to Sri Lankan Hospitality</h4>
+                    <p>At Travia, we believe that every journey should be extraordinary. Since our founding, we've been dedicated to connecting travelers with the finest accommodations across the beautiful island of Sri Lanka.</p>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-check-circle text-primary"></i> Our Mission</h6>
+                            <p>To provide seamless, reliable, and personalized hotel booking experiences that exceed expectations.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-heart text-primary"></i> Our Values</h6>
+                            <p>Trust, quality, innovation, and customer satisfaction are at the core of everything we do.</p>
+                        </div>
+                    </div>
+                    <h6>Why Choose Travia?</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-star text-warning"></i> Curated selection of premium hotels</li>
+                        <li><i class="fas fa-shield-alt text-primary"></i> Secure booking with best price guarantee</li>
+                        <li><i class="fas fa-headset text-success"></i> 24/7 customer support</li>
+                        <li><i class="fas fa-mobile-alt text-info"></i> User-friendly mobile platform</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="images/breakfast photo.jpg" 
+                         class="img-fluid rounded" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-white">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Send Us a Message</h5>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Subject</label>
+                                    <select class="form-select">
+                                        <option>General Inquiry</option>
+                                        <option>Booking Support</option>
+                                        <option>Technical Issue</option>
+                                        <option>Partnership</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-white">
+                        <h5><i class="fas fa-map-marker-alt"></i> Our Office</h5>
+                        <p>123 Galle Road<br>Colombo 03, Sri Lanka<br>Postal Code: 00300</p>
+                        <h5><i class="fas fa-phone"></i> Customer Service</h5>
+                        <p>
+                            Phone: +94 11 234 5678<br>
+                            WhatsApp: +94 77 123 4567<br>
+                            Available 24/7
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Travia</h5>
+                    <p>Your trusted partner for discovering the finest hotels in Sri Lanka. Experience luxury, comfort, and exceptional service.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#destinations" class="text-white">Destinations</a></li>
+                        <li><a href="#about" class="text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p
